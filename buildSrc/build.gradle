@@ -1,0 +1,100 @@
+
+plugins {
+    // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
+    id 'java-gradle-plugin'
+
+    // Apply the Groovy plugin to add support for Groovy
+    id 'groovy'
+
+    id 'java-library'
+	// id 'java'
+
+    id("org.jetbrains.kotlin.jvm") version("1.4.31")
+}
+
+// gradlePlugin {
+//     // Define the plugin
+//     plugins {
+//         greeting {
+//             id = 'repairer.greeting'
+//             implementationClass = 'vifim.repairer.RepairerPlugin'
+//         }
+//     }
+// }
+
+repositories {
+    // Use JCenter for resolving dependencies.
+    jcenter()
+}
+
+def rewriteVersion = "7.3.0"
+
+dependencies {
+    // Use the awesome Spock testing and specification framework
+    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
+
+    // rewrite-java depedencies only necessary for Java Recipe development
+    implementation("org.openrewrite:rewrite-java:$rewriteVersion")
+    runtimeOnly("org.openrewrite:rewrite-java-11:$rewriteVersion")
+    runtimeOnly("org.openrewrite:rewrite-java-8:$rewriteVersion")
+
+    // rewrite-maven dependency only necessary for Maven Recipe development
+    implementation("org.openrewrite:rewrite-maven:$rewriteVersion")
+
+    // rewrite-yaml dependency only necessary for Yaml Recipe development
+    implementation("org.openrewrite:rewrite-yaml:$rewriteVersion")
+
+    // rewrite-properties dependency only necessary for Properties Recipe development
+    implementation("org.openrewrite:rewrite-properties:$rewriteVersion")
+
+    // rewrite-xml dependency only necessary for XML Recipe development
+    implementation("org.openrewrite:rewrite-xml:$rewriteVersion")
+
+    // For authoring tests for any kind of Recipe
+    testImplementation("org.openrewrite:rewrite-test:$rewriteVersion")
+
+    // Use JUnit Jupiter API for testing.
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+
+	// Use JUnit Jupiter Engine for testing.
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-script-runtime
+    implementation 'org.jetbrains.kotlin:kotlin-script-runtime:1.4.31'
+}
+
+// See https://docs.gradle.org/current/userguide/building_java_projects.html#sec:java_cross_compilation
+// tasks.withType(JavaCompile) {
+//     sourceCompatibility = JavaVersion.VERSION_1_8.toString()
+//     targetCompatibility = JavaVersion.VERSION_1_8.toString()
+// }
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+ }
+
+// tasks.named('test') {
+//     useJUnitPlatform()
+// }
+
+// // Add a source set for the functional test suite
+// sourceSets {
+//     functionalTest {
+//     }
+// }
+
+// gradlePlugin.testSourceSets(sourceSets.functionalTest)
+// configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
+
+// // Add a task to run the functional tests
+// tasks.register('functionalTest', Test) {
+//     testClassesDirs = sourceSets.functionalTest.output.classesDirs
+//     classpath = sourceSets.functionalTest.runtimeClasspath
+// }
+
+// tasks.named('check') {
+//     // Run the functional tests as part of `check`
+//     dependsOn(tasks.functionalTest)
+// }

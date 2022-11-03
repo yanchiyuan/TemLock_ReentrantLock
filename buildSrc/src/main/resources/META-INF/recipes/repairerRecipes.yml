@@ -1,0 +1,27 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.vifim.ChangePackage
+recipeList:
+  - org.openrewrite.java.ChangePackage:
+      oldFullyQualifiedPackageName: repairer.test1
+      newFullyQualifiedPackageName: repairer.test2
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: vifim.SayHello
+recipeList:
+  - vifim.repairer.Recipe.SayHelloRecipe:
+      fullyQualifiedClassName: repairer.Changed
+  - vifim.repairer.Recipe.LockCheckRecipe
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: vifim.ExpandCustomerInfo
+recipeList:
+  - vifim.repairer.Recipe.ExpandCustomerInfo
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: vifim.LockCheckRecipe
+recipeList:
+  - vifim.repairer.Recipe.LockCheckRecipe

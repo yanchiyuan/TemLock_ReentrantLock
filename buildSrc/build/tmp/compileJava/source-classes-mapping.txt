@@ -1,0 +1,19 @@
+vifim/repairer/Recipe/ExpandCustomerInfo.java
+ vifim.repairer.Recipe.ExpandCustomerInfo
+ vifim.repairer.Recipe.ExpandCustomerInfo$1
+ vifim.repairer.Recipe.ExpandCustomerInfo$ExpandCustomerInfoVisitor
+vifim/repairer/Recipe/SayHelloRecipe.java
+ vifim.repairer.Recipe.SayHelloRecipe
+ vifim.repairer.Recipe.SayHelloRecipe$SayHelloVisitor
+vifim/repairer/Recipe/LockCheckTryRecipe.java
+ vifim.repairer.Recipe.LockCheckTryRecipe
+ vifim.repairer.Recipe.LockCheckTryRecipe$LockCheckTryVisitor
+vifim/repairer/Recipe/LockCheckRecipe.java
+ vifim.repairer.Recipe.LockCheckRecipe
+ vifim.repairer.Recipe.LockCheckRecipe$LockCheckVisitor
+vifim/repairer/Recipe/LockCheckForLoopRecipe.java
+ vifim.repairer.Recipe.LockCheckForLoopRecipe
+ vifim.repairer.Recipe.LockCheckForLoopRecipe$LockCheckForLoopVisitor
+vifim/repairer/Recipe/LockCheckIfElseRecipe.java
+ vifim.repairer.Recipe.LockCheckIfElseRecipe
+ vifim.repairer.Recipe.LockCheckIfElseRecipe$LockCheckIfElseVisitor

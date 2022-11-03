@@ -1,0 +1,2 @@
+// include ':recipe'
+// project(':recipe').projectDir=new File(settingsDir,'/recipe')
